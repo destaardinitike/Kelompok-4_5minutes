@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Berhasil - Apple</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e8ecf1 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        /* Container Utama */
+        .success-container {
+            background: white;
+            border-radius: 20px;
+            padding: 60px 40px;
+            width: 100%;
+            max-width: 480px;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Success Icon dengan Animasi */
+        .success-icon-wrapper {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 30px;
+            position: relative;
+        }
+
+        .success-icon-bg {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #34C759 0%, #30B350 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 30px rgba(52, 199, 89, 0.3);
+            animation: scaleIn 0.5s ease-out 0.3s both;
+        }
+
+        @keyframes scaleIn {
+            from {
+                transform: scale(0);
+            }
+            to {
+                transform: scale(1);
+            }
+        }
+
+        .checkmark {
+            width: 50px;
+            height: 50px;
+            stroke: white;
+            stroke-width: 3;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            fill: none;
+            stroke-dasharray: 100;
+            stroke-dashoffset: 100;
+            animation: drawCheckmark 0.6s ease-out 0.6s forwards;
+        }
+
+        @keyframes drawCheckmark {
+            to {
+                stroke-dashoffset: 0;
+            }
+        }
+
+        /* Ripple Effect */
+        .ripple {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 2px solid #34C759;
+            opacity: 0;
+            animation: rippleEffect 1.5s ease-out 0.8s infinite;
+        }
+
+        @keyframes rippleEffect {
+            0% {
+                width: 100px;
+                height: 100px;
+                opacity: 0.5;
+            }
+            100% {
+                width: 200px;
+                height: 200px;
+                opacity: 0;
+            }
+        }
+
+        /* Apple Logo Kecil */
+        .apple-badge {
+            width: 40px;
+            height: 40px;
+            background: #000;
+            border-radius: 10px;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        .apple-badge svg {
+            width: 24px;
+            height: 24px;
+            fill: white;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* Typography */
+        .success-title {
+            font-size: 28px;
+            font-weight: 700;
+            color: #1d1d1f;
+            margin-bottom: 12px;
+            letter-spacing: -0.5px;
+            animation: fadeIn 0.5s ease-out 0.2s both;
+        }
+
+        .success-message {
+            font-size: 17px;
+            color: #86868b;
+            margin-bottom: 40px;
+            line-height: 1.5;
+            animation: fadeIn 0.5s ease-out 0.3s both;
+        }
+
+        /* User Info Card */
+        .user-info-card {
+            background: #f5f5f7;
+            border-radius: 14px;
+            padding: 24px;
+            margin-bottom: 30px;
+            text-align: left;
+            animation: fadeIn 0.5s ease-out 0.4s both;
+        }
+
+        .user-info-label {
+            font-size: 13px;
+            font-weight: 600;
+            color: #86868b;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 12px;
+        }
+
+        .user-profile {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+
+        .user-avatar {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #007AFF 0%, #5856D6 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: 600;
+            color: white;
+            flex-shrink: 0;
+        }
+
+        .user-details {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .user-name {
+            font-size: 17px;
+            font-weight: 600;
+            color: #1d1d1f;
+            margin-bottom: 4px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .user-email {
+            font-size: 14px;
+            color: #86868b;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .user-meta {
+            display: flex;
+            gap: 20px;
+            padding-top: 16px;
+            border-top: 1px solid #d2d2d7;
+        }
+
+        .meta-item {
+            flex: 1;
+        }
+
+        .meta-label {
+            font-size: 12px;
+            color: #86868b;
+            margin-bottom: 4px;
+        }
+
+        .meta-value {
+            font-size: 14px;
+            font-weight: 600;
+            color: #1d1d1f;
+        }
+
+        /* Buttons */
+        .button-group {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            animation: fadeIn 0.5s ease-out 0.5s both;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #007AFF 0%, #0051D5 100%);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            padding: 16px 32px;
+            font-size: 17px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0, 122, 255, 0.3);
+            text-decoration: none;
+            display: inline-block;
+            width: 100%;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 122, 255, 0.4);
+        }
+
+        .btn-primary:active {
+            transform: translateY(0);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #007AFF;
+            border: none;
+            border-radius: 12px;
+            padding: 16px 32px;
+            font-size: 17px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            width: 100%;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(0, 122, 255, 0.1);
+        }
+
+        /* Security Badge */
+        .security-badge {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 24px;
+            font-size: 13px;
+            color: #86868b;
+            animation: fadeIn 0.5s ease-out 0.6s both;
+        }
+
+        .security-badge svg {
+            width: 16px;
+            height: 16px;
+            fill: #34C759;
+        }
+
+        /* Responsive */
+        @media (max-width: 640px) {
+            .success-container {
+                padding: 40px 24px;
+            }
+
+            .success-title {
+                font-size: 24px;
+            }
+
+            .success-message {
+                font-size: 15px;
+            }
+
+            .user-info-card {
+                padding: 20px;
+            }
+
+            .user-avatar {
+                width: 48px;
+                height: 48px;
+                font-size: 20px;
+            }
+        }
+
+        /* Dark Mode Support */
+        @media (prefers-color-scheme: dark) {
+            body {
+                background: linear-gradient(135deg, #1c1c1e 0%, #2c2c2e 100%);
+            }
+
+            .success-container {
+                background: #2c2c2e;
+            }
+
+            .success-title {
+                color: #f5f5f7;
+            }
+
+            .success-message {
+                color: #98989d;
+            }
+
+            .user-info-card {
+                background: #3a3a3c;
+            }
+
+            .user-name {
+                color: #f5f5f7;
+            }
+
+            .user-email {
+                color: #98989d;
+            }
+
+            .meta-label {
+                color: #98989d;
+            }
+
+            .meta-value {
+                color: #f5f5f7;
+            }
+
+            .user-meta {
+                border-top-color: #48484a;
+            }
+        }
+
+        /* Loading State (Optional) */
+        .loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            animation: fadeOut 0.5s ease-out 2s forwards;
+        }
+
+        @keyframes fadeOut {
+            to {
+                opacity: 0;
+                visibility: hidden;
+            }
+        }
+
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 3px solid #f0f0f0;
+            border-top-color: #007AFF;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Loading Overlay (hilang otomatis setelah 2 detik) -->
+    <div class="loading-overlay">
+        <div class="spinner"></div>
+    </div>
+
+    <div class="success-container">
+        <!-- Apple Badge -->
+        <div class="apple-badge">
+            <svg viewBox="0 0 17 20" xmlns="http://www.w3.org/2000/svg">
+                <path d="M15.5 14.5c-.5 1-1 1.5-1.5 2-1 1-2 1.5-3.5 1.5-1.5 0-2.5-.5-3.5-1.5-.5-.5-1-1-1.5-2-.5-1-1-2.5-1-4 0-1.5.5-2.5 1-3.5.5-1 1-1.5 1.5-2C6.5 4 7.5 3.5 9 3.5c1.5 0 2.5.5 3.5 1.5.5.5 1 1 1.5 2 .5 1 1 2.5 1 4 0 1.5-.5 2.5-1 3.5z"/>
+            </svg>
+        </div>
+
+        <!-- Success Icon dengan Animasi -->
+        <div class="success-icon-wrapper">
+            <div class="success-icon-bg">
+                <svg class="checkmark" viewBox="0 0 52 52">
+                    <path d="M14 27 L22 35 L38 16"/>
+                </svg>
+            </div>
+            <div class="ripple"></div>
+        </div>
+
+        <!-- Title & Message -->
+        <h1 class="success-title">Login Berhasil!</h1>
+        <p class="success-message">
+            Anda telah berhasil masuk menggunakan Apple ID. Selamat datang kembali!
+        </p>
+
+        <!-- User Info Card -->
+        <div class="user-info-card">
+            <div class="user-info-label">Informasi Akun</div>
+            
+            <div class="user-profile">
+                <div class="user-avatar">K4</div>
+                <div class="user-details">
+                    <div class="user-name">Kelompok 4</div>
+                    <div class="user-email">kelompok4@apple.id</div>
+                </div>
+            </div>
+
+            <div class="user-meta">
+                <div class="meta-item">
+                    <div class="meta-label">Metode Login</div>
+                    <div class="meta-value">Apple ID</div>
+                </div>
+                <div class="meta-item">
+                    <div class="meta-label">Waktu Login</div>
+                    <div class="meta-value" id="login-time">Baru saja</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Buttons -->
+        <div class="button-group">
+            <a href="/dashboard" class="btn-primary">Lanjutkan ke Dashboard</a>
+            <a href="/profile" class="btn-secondary">Lihat Profil Saya</a>
+        </div>
+
+        <!-- Security Badge -->
+        <div class="security-badge">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            </svg>
+            <span>Koneksi aman & terenkripsi</span>
+        </div>
+    </div>
+
+    <script>
+        // Set waktu login
+        const now = new Date();
+        const timeString = now.toLocaleTimeString('id-ID', { 
+            hour: '2-digit', 
+            minute: '2-digit' 
+        });
+        document.getElementById('login-time').textContent = timeString;
+
+        // Auto redirect setelah 10 detik (opsional)
+        setTimeout(() => {
+            // Uncomment baris di bawah untuk auto redirect
+            // window.location.href = '/dashboard';
+        }, 10000);
+
+        // Track successful login (untuk analytics)
+        console.log('✅ Login successful:', {
+            user: 'Ankur Thakur',
+            email: 'ankur.thakur@icloud.com',
+            method: 'Apple ID',
+            timestamp: now.toISOString()
+        });
+    </script>
+
+</body>
+</html>

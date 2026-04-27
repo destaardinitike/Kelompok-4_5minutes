@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Berhasil - Facebook</title>
+    <style>
+        /* ========================
+           1. CSS VARIABLES & RESET
+           ======================== */
+        :root {
+            --fb-blue: #1877f2;
+            --fb-blue-hover: #166fe5;
+            --fb-green: #42b72a;
+            --fb-bg: #f0f2f5;
+            --fb-white: #ffffff;
+            --fb-text-primary: #1c1e21;
+            --fb-text-secondary: #65676b;
+            --fb-border: #dadde1;
+            --fb-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Helvetica, Arial, sans-serif;
+            background-color: var(--fb-bg);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            color: var(--fb-text-primary);
+        }
+
+        /* ========================
+           2. LAYOUT UTAMA
+           ======================== */
+        .main-wrapper {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px 16px;
+        }
+
+        .success-card {
+            background: var(--fb-white);
+            border-radius: 8px;
+            box-shadow: var(--fb-shadow);
+            padding: 32px 24px;
+            width: 100%;
+            max-width: 432px;
+            text-align: center;
+            animation: fadeInUp 0.5s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ========================
+           3. LOGO FACEBOOK
+           ======================== */
+        .fb-logo {
+            margin-bottom: 24px;
+        }
+
+        .fb-logo svg {
+            width: 160px;
+            height: auto;
+        }
+
+        /* ========================
+           4. IKON SUKSES (CHECKMARK)
+           ======================== */
+        .success-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--fb-green);
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(66, 183, 42, 0.3);
+            animation: scaleIn 0.4s ease-out 0.2s both;
+        }
+
+        @keyframes scaleIn {
+            from { transform: scale(0); }
+            to   { transform: scale(1); }
+        }
+
+        .checkmark {
+            width: 40px;
+            height: 40px;
+            stroke: white;
+            stroke-width: 3;
+            fill: none;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            stroke-dasharray: 50;
+            stroke-dashoffset: 50;
+            animation: drawCheck 0.5s ease-out 0.5s forwards;
+        }
+
+        @keyframes drawCheck {
+            to { stroke-dashoffset: 0; }
+        }
+
+        /* ========================
+           5. TEKS & TYPOGRAPHY
+           ======================== */
+        .success-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--fb-text-primary);
+            margin-bottom: 8px;
+        }
+
+        .success-msg {
+            font-size: 15px;
+            color: var(--fb-text-secondary);
+            margin-bottom: 24px;
+            line-height: 1.4;
+        }
+
+        /* ========================
+           6. KARTU INFORMASI USER
+           ======================== */
+        .user-card {
+            background: #f7f8fa;
+            border: 1px solid var(--fb-border);
+            border-radius: 8px;
+            padding: 16px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 24px;
+            text-align: left;
+        }
+
+        .avatar {
+            width: 48px;
+            height: 48px;
+            background: var(--fb-blue);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 18px;
+            flex-shrink: 0;
+        }
+
+        .user-info .name {
+            font-weight: 600;
+            color: var(--fb-text-primary);
+            font-size: 15px;
+            display: block;
+        }
+
+        .user-info .email {
+            color: var(--fb-text-secondary);
+            font-size: 13px;
+            margin-top: 2px;
+            display: block;
+        }
+
+        /* ========================
+           7. TOMBOL AKSI
+           ======================== */
+        .btn-continue {
+            display: block;
+            width: 100%;
+            background: var(--fb-blue);
+            color: white;
+            text-decoration: none;
+            padding: 12px;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: 600;
+            transition: background-color 0.2s ease;
+        }
+
+        .btn-continue:hover {
+            background: var(--fb-blue-hover);
+        }
+
+        .btn-continue:active {
+            transform: scale(0.98);
+        }
+
+        /* ========================
+           8. CATATAN KEAMANAN
+           ======================== */
+        .security-note {
+            margin-top: 20px;
+            font-size: 13px;
+            color: var(--fb-text-secondary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+        }
+
+        .security-note svg {
+            width: 14px;
+            height: 14px;
+            fill: var(--fb-green);
+        }
+
+        /* ========================
+           9. FOOTER
+           ======================== */
+        footer {
+            padding: 20px;
+            text-align: center;
+            font-size: 12px;
+            color: var(--fb-text-secondary);
+            background: transparent;
+        }
+
+        /* ========================
+           10. RESPONSIVE (MOBILE)
+           ======================== */
+        @media (max-width: 480px) {
+            .success-card {
+                padding: 24px 16px;
+            }
+            .success-title {
+                font-size: 22px;
+            }
+            .fb-logo svg {
+                width: 140px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="main-wrapper">
+        <div class="success-card">
+            <!-- Logo Facebook -->
+            <div class="fb-logo">
+                <svg viewBox="0 0 160 42" fill="none" xmlns="https://static.vecteezy.com/system/resources/previews/018/930/698/non_2x/facebook-logo-facebook-icon-transparent-free-png.png">
+                    <path d="M12.5 0C5.6 0 0 5.6 0 12.5V29.5C0 36.4 5.6 42 12.5 42H29.5C36.4 42 42 36.4 42 29.5V12.5C42 5.6 36.4 0 29.5 0H12.5Z" fill="#1877F2"/>
+                    <path d="M28.5 22.5H24.5V34.5H19.5V22.5H17V18.5H19.5V15.5C19.5 12.5 21.5 10.5 24.5 10.5H28.5V15.5H25.5C24.5 15.5 24.5 16.5 24.5 17.5V18.5H28.5L28.5 22.5Z" fill="white"/>
+                    <text x="48" y="32" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="28" font-weight="bold" fill="#1877F2" letter-spacing="-1">acebook</text>
+                </svg>
+            </div>
+
+            <!-- Ikon Sukses -->
+            <div class="success-icon">
+                <svg class="checkmark" viewBox="0 0 24 24">
+                    <path d="M5 13l4 4L19 7"/>
+                </svg>
+            </div>
+
+            <!-- Judul & Pesan -->
+            <h1 class="success-title">Login Berhasil</h1>
+            <p class="success-msg">Anda telah berhasil masuk ke Facebook. Selamat datang kembali!</p>
+
+            <!-- Informasi User -->
+            <div class="user-card">
+                <div class="avatar">K4</div>
+                <div class="user-info">
+                    <span class="name">Kelompok 4</span>
+                    <span class="email">kelompok4@facebook.id</span>
+                </div>
+            </div>
+
+            <!-- Tombol Lanjut -->
+            <a href="#" class="btn-continue">Lanjutkan ke Beranda</a>
+
+            <!-- Catatan Keamanan -->
+            <div class="security-note">
+                <svg viewBox="0 0 24 24"><path d="M12 2L3 7v6c0 5.25 3.75 9.75 9 10.75 5.25-1 9-5.5 9-10.75V7l-9-5zm0 10.75c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z"/></svg>
+                <span>Koneksi aman & terenkripsi</span>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        Meta © 2026
+    </footer>
+
+</body>
+</html>

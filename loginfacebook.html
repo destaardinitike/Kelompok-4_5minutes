@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facebook - log in or sign up</title>
+    <style>
+        /* 1. Reset & Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f0f2f5;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* 2. Container Utama */
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-grow: 1;
+            padding: 20px;
+            gap: 20px; /* Jarak antar kolom */
+            max-width: 980px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        /* 3. Sisi Kiri (Logo & Teks) */
+        .left-side {
+            flex: 1;
+            padding-right: 32px;
+            margin-top: 60px; /* Agar sedikit turun dari atas */
+        }
+
+        .fb-logo {
+            width: 300px;
+            margin-left: -28px;
+            margin-bottom: 10px;
+        }
+
+        .tagline {
+            font-size: 28px;
+            font-weight: 400;
+            line-height: 32px;
+            color: #1c1e21;
+            max-width: 500px;
+        }
+
+        /* 4. Sisi Kanan (Kotak Login) */
+        .right-side {
+            width: 396px;
+            flex-shrink: 0;
+        }
+
+        .login-card {
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+        }
+
+        /* 5. Input Fields */
+        .input-field {
+            width: 100%;
+            padding: 14px 16px;
+            margin-bottom: 12px;
+            border: 1px solid #dddfe2;
+            border-radius: 6px;
+            font-size: 17px;
+            color: #1d2129;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .input-field:focus {
+            border-color: #1877f2;
+            box-shadow: 0 0 0 2px #e7f3ff;
+        }
+
+        .input-field::placeholder {
+            color: #90949c;
+        }
+
+        /* 6. Tombol Login */
+        .login-btn {
+            width: 100%;
+            background-color: #1877f2;
+            color: #ffffff;
+            font-size: 20px;
+            font-weight: bold;
+            border: none;
+            border-radius: 6px;
+            padding: 10px 0;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .login-btn:hover {
+            background-color: #166fe5;
+        }
+
+        /* 7. Link & Divider */
+        .forgot-link {
+            display: inline-block;
+            margin: 16px 0;
+            color: #1877f2;
+            font-size: 14px;
+            text-decoration: none;
+        }
+
+        .forgot-link:hover {
+            text-decoration: underline;
+        }
+
+        .divider {
+            border-bottom: 1px solid #dadde1;
+            margin-bottom: 20px;
+        }
+
+        /* 8. Tombol Create New Account */
+        .create-btn {
+            background-color: #42b72a;
+            color: #ffffff;
+            font-size: 17px;
+            font-weight: bold;
+            border: none;
+            border-radius: 6px;
+            padding: 12px 20px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .create-btn:hover {
+            background-color: #36a420;
+        }
+
+        .create-page-text {
+            text-align: center;
+            margin-top: 28px;
+            font-size: 14px;
+            color: #1c1e21;
+        }
+
+        .create-page-text a {
+            font-weight: bold;
+            color: #1c1e21;
+            text-decoration: none;
+        }
+        
+        .create-page-text a:hover {
+            text-decoration: underline;
+        }
+
+        /* 9. Footer Sederhana */
+        footer {
+            background-color: #fff;
+            padding: 20px;
+            text-align: center;
+            font-size: 12px;
+            color: #737373;
+            border-top: 1px solid #e5e5e5;
+        }
+
+        /* 10. RESPONSIVE (Untuk HP/Tablet) */
+        @media (max-width: 900px) {
+            .container {
+                flex-direction: column;
+                padding: 40px 20px;
+                align-items: center;
+            }
+
+            .left-side {
+                text-align: center;
+                padding-right: 0;
+                margin-top: 0;
+            }
+
+            .fb-logo {
+                margin-left: 0;
+                width: 200px;
+            }
+
+            .tagline {
+                font-size: 20px;
+                line-height: 26px;
+            }
+
+            .right-side {
+                width: 100%;
+                max-width: 400px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Konten Utama -->
+    <div class="container">
+        <!-- Sisi Kiri -->
+        <div class="left-side">
+            <!-- Logo Facebook SVG -->
+            <img src="https://pixelbag.net/wp-content/uploads/2022/02/facebook-logo-700x700.jpg" alt="Facebook Logo" class="fb-logo">
+            <h2 class="tagline">Facebook membantu Anda terhubung dan berbagi dengan orang-orang dalam kehidupan Anda.</h2>
+        </div>
+
+        <!-- Sisi Kanan -->
+        <div class="right-side">
+            <div class="login-card">
+                <form action="#" method="POST">
+                    <input type="text" class="input-field" placeholder="Email or phone number" required>
+                    <input type="password" class="input-field" placeholder="Password" required>
+                    <button type="submit" class="login-btn">Log In</button>
+                </form>
+                
+                <a href="#" class="forgot-link">Forgotten password?</a>
+                
+                <hr class="divider">
+                
+                <button type="button" class="create-btn">Create new account</button>
+            </div>
+            
+            <p class="create-page-text">
+                <a href="#">Create a Page</a> for a celebrity, brand or business.
+            </p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>Meta © 2026</p>
+    </footer>
+
+</body>
+</html>

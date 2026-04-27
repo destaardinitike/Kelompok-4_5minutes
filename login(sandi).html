@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - 5 Minutes</title>
+
+    <style>
+        /* RESET & BASE */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, Arial, sans-serif;
+        }
+
+        body {
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .container {
+            display: flex;
+            height: 100vh;
+        }
+
+        /* BAGIAN KIRI */
+        .left {
+            width: 50%;
+            background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.4)), 
+                        url('https://picsum.photos/800/1000') no-repeat center;
+            background-size: cover;
+            position: relative;
+            display: flex;
+            align-items: flex-end;
+            padding: 60px;
+        }
+
+        .overlay {
+            color: white;
+        }
+
+        .overlay h1 {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        /* BAGIAN KANAN */
+        .right {
+            width: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #fff;
+        }
+
+        .form-box {
+            width: 100%;
+            max-width: 400px;
+            padding: 20px;
+        }
+
+        .form-box h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .desc {
+            font-size: 13px;
+            margin-bottom: 20px;
+            color: #666;
+        }
+
+        form label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        form input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        form button[type="submit"] {
+            width: 100%;
+            padding: 12px;
+            background: black;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        /* DIVIDER */
+        .divider {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            margin: 20px 0;
+            color: #999;
+            font-size: 13px;
+        }
+
+        .divider::before, .divider::after {
+            content: '';
+            flex: 1;
+            border-bottom: 1px solid #eee;
+        }
+
+        .divider:not(:empty)::before { margin-right: 10px; }
+        .divider:not(:empty)::after { margin-left: 10px; }
+
+        /* SOCIAL BUTTONS (SEJAJAR HORIZONTAL) */
+        .social-container {
+            display: flex;
+            flex-direction: row; /* Berjejer ke samping */
+            gap: 10px;
+        }
+
+        .btn-social {
+            flex: 1; /* Membagi ruang sama rata */
+            display: flex;
+            flex-direction: column; /* Ikon di atas, teks di bawah */
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+            padding: 10px 5px;
+            border: 1px solid #ddd;
+            background: white;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 12px;
+            transition: 0.2s;
+        }
+
+        .btn-social:hover {
+            background: #f9f9f9;
+        }
+
+        .btn-social img {
+            width: 20px;
+            height: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .left { display: none; }
+            .right { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="left">
+        <div class="overlay">
+            <h1>Jadilah yang paling tahu.</h1>
+            <p>Bergabunglah dengan komunitas kami hari ini.</p>
+        </div>
+    </div>
+
+    <div class="right">
+        <div class="form-box">
+            <h2>Masuk atau buat akun</h2>
+            <p class="desc">Dengan melanjutkan, Anda menyetujui syarat & kebijakan kami.</p>
+
+            <form>
+                <label>Alamat Email</label>
+                <input type="email" placeholder="Masukkan email" required>
+                <button type="submit">LANJUTKAN</button>
+
+                <div class="divider">atau lanjut dengan</div>
+
+                <div class="social-container">
+                    <button type="button" class="btn-social">
+                        <img src="https://fonts.gstatic.com/s/i/productlogos/googleg/v6/24px.svg" alt="Google">
+                        Google   
+                    </button>
+                    <button type="button" class="btn-social">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg" alt="Apple">
+                        Apple
+                    </button>
+                    <button type="button" class="btn-social">
+                        <img src="https://tse2.mm.bing.net/th/id/OIP._-N0rPk3XBfnfR9ZvP892wHaHa?pid=Api&P=0&h=180" alt="Facebook">
+                        Facebook
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

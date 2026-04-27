@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Design - Success</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #fdf2f2; /* Warna latar belakang luar */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Container Utama */
+        .main-card {
+            width: 95%;
+            max-width: 900px;
+            aspect-ratio: 16 / 10; /* Menjaga rasio kotak seperti di gambar */
+            
+            /* EFEK LATAR BELAKANG BERGELOMBANG (SMOKE EFFECT) */
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(60, 60, 60, 0.8) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(50, 50, 50, 0.8) 0%, transparent 50%),
+                radial-gradient(circle at 50% 50%, rgba(30, 30, 30, 1) 0%, transparent 100%),
+                #1a1a1a; /* Warna dasar hitam */
+            background-blend-mode: overlay;
+            
+            border: 2px solid #3498db; /* Garis seleksi biru */
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+            padding: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Tekstur tambahan agar lebih bergelombang */
+        .main-card::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: repeating-linear-gradient(
+                45deg,
+                transparent,
+                transparent 10px,
+                rgba(255,255,255,0.02) 10px,
+                rgba(255,255,255,0.02) 20px
+            );
+            pointer-events: none;
+        }
+
+        /* Ikon Centang Putih */
+        .icon-container {
+            margin-bottom: 30px;
+            filter: drop-shadow(0 5px 15px rgba(0,0,0,0.3));
+        }
+
+        .badge-shape {
+            background-color: white;
+            width: 110px;
+            height: 110px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            /* Bentuk bunga/gerigi presisi */
+            clip-path: polygon(50% 0%, 61% 10%, 75% 10%, 80% 24%, 94% 28%, 90% 42%, 98% 54%, 90% 67%, 94% 81%, 80% 85%, 75% 99%, 61% 90%, 50% 100%, 39% 90%, 25% 99%, 20% 85%, 6% 81%, 10% 67%, 2% 54%, 10% 42%, 6% 28%, 20% 24%, 25% 10%, 39% 10%);
+        }
+
+        .badge-shape svg {
+            width: 55px;
+            height: 55px;
+            color: #2c3e50;
+        }
+
+        /* Tipografi Serif Sesuai Gambar */
+        h1 {
+            font-family: 'Playfair Display', serif;
+            color: white;
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: 5px;
+        }
+
+        p {
+            font-family: 'Playfair Display', serif;
+            color: white;
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 50px;
+        }
+
+        /* Tombol Biru Terang */
+        .btn-lanjutkan {
+            background-color: #1e9cf1; /* Warna biru cerah sesuai gambar */
+            color: white;
+            border: none;
+            width: 100%;
+            max-width: 350px;
+            padding: 16px 0;
+            font-size: 0.8rem;
+            font-weight: bold;
+            letter-spacing: 2px;
+            cursor: pointer;
+            text-transform: uppercase;
+            transition: background 0.3s;
+        }
+
+        .btn-lanjutkan:hover {
+            background-color: #1582cc;
+        }
+
+        /* Responsif Mobile */
+        @media (max-width: 600px) {
+            h1 { font-size: 2.2rem; }
+            p { font-size: 1.3rem; }
+            .badge-shape { width: 80px; height: 80px; }
+            .badge-shape svg { width: 40px; height: 40px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="main-card">
+        <div class="icon-container">
+            <div class="badge-shape">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+            </div>
+        </div>
+
+        <h1>Selamat!</h1>
+        <p>Anda Berhasil Masuk</p>
+
+        <button class="btn-lanjutkan">LANJUTKAN</button>
+    </div>
+
+</body>
+</html>

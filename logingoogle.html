@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pilih Akun - Google</title>
+    <style>
+        :root {
+            --google-gray: #5f6368;
+            --google-blue: #1a73e8;
+            --border-color: #dadce0;
+            --text-dark: #202124;
+        }
+
+        * {
+            box-sizing: border-box;
+            font-family: 'Roboto', Arial, sans-serif;
+        }
+
+        body {
+            background-color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        /* Container utama ala Google Card */
+        .login-card {
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            width: 100%;
+            max-width: 450px;
+            padding: 48px 40px 36px;
+            text-align: center;
+        }
+
+        .google-logo {
+            width: 75px;
+            margin-bottom: 12px;
+        }
+
+        h1 {
+            font-size: 24px;
+            font-weight: 400;
+            margin: 0 0 8px;
+            color: var(--text-dark);
+        }
+
+        .subtitle {
+            font-size: 16px;
+            color: var(--text-dark);
+            margin-bottom: 24px;
+            font-weight: 400;
+        }
+
+        /* List Akun */
+        .account-list {
+            text-align: left;
+            margin-top: 10px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .account-item {
+            display: flex;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border-color);
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .account-item:hover {
+            background-color: #f7f8f8;
+        }
+
+        .profile-img {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            margin-right: 12px;
+            object-fit: cover;
+        }
+
+        .avatar-initial {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background-color: #1a73e8;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            margin-right: 12px;
+            font-weight: 500;
+        }
+
+        .user-details {
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .user-name {
+            font-size: 14px;
+            font-weight: 500;
+            color: #3c4043;
+        }
+
+        .user-email {
+            font-size: 12px;
+            color: var(--google-gray);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        /* Baris Bawah: Gunakan Akun Lain */
+        .footer-action {
+            display: flex;
+            align-items: center;
+            padding: 14px 0;
+            cursor: pointer;
+            color: #3c4043;
+            font-size: 14px;
+            font-weight: 500;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .footer-action:hover {
+            background-color: #f7f8f8;
+        }
+
+        .icon-circle {
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 12px;
+        }
+
+        .icon-circle svg {
+            fill: var(--google-gray);
+        }
+
+        .footer-text {
+            color: var(--text-dark);
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="login-card">
+        <img class="google-logo" src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" alt="Google">
+        
+        <h1>Pilih akun</h1>
+        <p class="subtitle">untuk melanjutkan ke YouTube</p>
+
+        <div class="account-list">
+            <div class="account-item">
+                <img class="profile-img" src="https://ui-avatars.com/api/?name=Milan+Lapoza&background=0D8ABC&color=fff" alt="User">
+                <div class="user-details">
+                    <span class="user-name">Milan Lapoza</span>
+                    <span class="user-email">milan.lapoza@gmail.com</span>
+                </div>
+            </div>
+
+            <div class="account-item">
+                <div class="avatar-initial" style="background-color: #e67c73;">A</div>
+                <div class="user-details">
+                    <span class="user-name">Andi Makassar</span>
+                    <span class="user-email">andimksr@gmail.com</span>
+                </div>
+            </div>
+
+            <div class="account-item">
+                <img class="profile-img" src="https://ui-avatars.com/api/?name=Siti+Aisyah&background=f4b400&color=fff" alt="User">
+                <div class="user-details">
+                    <span class="user-name">Siti Aisyah</span>
+                    <span class="user-email">aisyah.siti@gmail.com</span>
+                </div>
+            </div>
+
+            <div class="footer-action">
+                <div class="icon-circle">
+                    <svg width="20" height="20" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 11h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg>
+                </div>
+                <span class="footer-text">Gunakan akun lain</span>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
